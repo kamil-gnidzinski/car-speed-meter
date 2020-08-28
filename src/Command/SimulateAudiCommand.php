@@ -15,6 +15,7 @@ class SimulateAudiCommand extends Command
 {
     protected static $defaultName = 'app:simulate-audi';
     private $simulator;
+
     /**
      * SimulateOpelCommand constructor.
      */
@@ -27,8 +28,7 @@ class SimulateAudiCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Simulate speed meter for Audi')
-        ;
+            ->setDescription('Simulate speed meter for Audi');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

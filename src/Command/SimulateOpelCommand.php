@@ -15,6 +15,7 @@ class SimulateOpelCommand extends Command
 {
     protected static $defaultName = 'app:simulate-opel';
     private $simulator;
+
     /**
      * SimulateOpelCommand constructor.
      */
@@ -27,8 +28,7 @@ class SimulateOpelCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Simulate speed meter for Opel')
-        ;
+            ->setDescription('Simulate speed meter for Opel');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

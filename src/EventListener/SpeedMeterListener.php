@@ -11,6 +11,6 @@ class SpeedMeterListener
 {
     public function onSpeedMeterEvent(SpeedMeterEvent $event)
     {
-       return $event->getAverageSpeed();
+        return $event->getAverageSpeed();
     }
 }

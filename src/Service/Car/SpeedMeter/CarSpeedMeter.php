@@ -23,10 +23,10 @@ class CarSpeedMeter
 
     public function getAverageSpeed($second)
     {
-            $sample = $this->dataAdapter->getVelocityData($second);
-            $this->samplesCount++;
-            $this->sum += $sample;
-            $this->result = $this->sum / $this->samplesCount;
+        $sample = $this->dataAdapter->getVelocityData($second);
+        $this->samplesCount++;
+        $this->sum += $sample;
+        $this->result = $this->sum / $this->samplesCount;
     }
 
     /**
