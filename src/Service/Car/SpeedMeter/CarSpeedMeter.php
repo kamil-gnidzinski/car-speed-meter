@@ -29,6 +29,7 @@ class CarSpeedMeter
             $this->samplesCount++;
             $this->sum += $sample;
             $this->result = $this->sum / $this->samplesCount;
+            $this->second += rand(0, 5);
         }
 
     }
