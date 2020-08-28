@@ -9,7 +9,6 @@ class CarSpeedMeter
 
     private $dataAdapter;
     private $samplesCount = 0;
-    private $second = 0;
     private $stop = false;
     private $sum = 0;
     private $result = 0;
@@ -22,16 +21,12 @@ class CarSpeedMeter
         $this->dataAdapter = $dataAdapter;
     }
 
-    public function getAverageSpeed()
+    public function getAverageSpeed($second)
     {
-        while ($this->stop == false) {
-            $sample = $this->dataAdapter->getVelocityData($this->second);
+            $sample = $this->dataAdapter->getVelocityData($second);
             $this->samplesCount++;
             $this->sum += $sample;
             $this->result = $this->sum / $this->samplesCount;
-            $this->second += rand(0, 5);
-        }
-
     }
 
     /**
@@ -40,14 +35,6 @@ class CarSpeedMeter
     public function setSamplesCount(int $samplesCount): void
     {
         $this->samplesCount = $samplesCount;
-    }
-
-    /**
-     * @param int $second
-     */
-    public function setSecond(int $second): void
-    {
-        $this->second = $second;
     }
 
     /**
@@ -72,5 +59,13 @@ class CarSpeedMeter
     public function setResult(int $result): void
     {
         $this->result = $result;
+    }
+
+    /**
+     * @return int
+     */
+    public function getResult(): int
+    {
+        return $this->result;
     }
 }

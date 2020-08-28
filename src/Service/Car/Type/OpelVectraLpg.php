@@ -2,8 +2,10 @@
 
 namespace App\Service\Car\Type;
 
+use App\EventListener\SpeedMeterListener;
 use App\Service\Car\SpeedGauge\AnalogGauge;
 use App\Service\Car\SpeedMeter\CarSpeedMeter;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class OpelVectraLpg extends CarAbstract
 {
@@ -12,14 +14,15 @@ class OpelVectraLpg extends CarAbstract
         parent::__construct($carSpeedMeter, $gauge);
     }
 
-    public function getAverageSpeed()
+    public function getAverageSpeed(int $second)
     {
-        $this->carSpeedMeter->getAverageSpeed();
+        $this->carSpeedMeter->getAverageSpeed($second);
+        return $this->carSpeedMeter->getResult();
     }
 
-    public function getCurrentSpeedReading()
+    public function getCurrentSpeedReading(int $speed)
     {
-        $this->gauge->getCurrentSpeedReading(1);
+        return $this->gauge->getCurrentSpeedReading($speed);
     }
 
 }

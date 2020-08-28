@@ -10,9 +10,9 @@ abstract class CarAbstract
     protected $carSpeedMeter;
     protected $gauge;
 
-    abstract public function getAverageSpeed();
+    abstract public function getAverageSpeed(int $second);
 
-    abstract public function getCurrentSpeedReading();
+    abstract public function getCurrentSpeedReading(int $speed);
 
     /**
      * CarAbstract constructor.

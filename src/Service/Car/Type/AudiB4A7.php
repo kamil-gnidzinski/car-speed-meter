@@ -12,14 +12,15 @@ class AudiB4A7 extends CarAbstract
         parent::__construct($carSpeedMeter, $gauge);
     }
 
-    public function getAverageSpeed()
+    public function getAverageSpeed(int $second)
     {
-        $this->carSpeedMeter->getAverageSpeed();
+        $this->carSpeedMeter->getAverageSpeed($second);
+        return $this->carSpeedMeter->getResult();
     }
 
-    public function getCurrentSpeedReading()
+    public function getCurrentSpeedReading(int $speed)
     {
-        $this->gauge->getCurrentSpeedReading(1);
+        return $this->gauge->getCurrentSpeedReading($speed);
     }
 
 }

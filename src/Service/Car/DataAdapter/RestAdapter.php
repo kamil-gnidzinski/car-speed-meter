@@ -6,11 +6,11 @@ class RestAdapter implements DataAdapterInterface
 {
     private const API_URL = 'http://danhoss.vdl.pl/get-velocity.php?t=';
 
-    public function getVelocityData(int $second)
+    public function getVelocityData(int $second): int
     {
-        $url = self::API_URL.$second;
+        $url = self::API_URL . $second;
         $client = \Symfony\Component\HttpClient\HttpClient::create();
-        $response = $client->request('GET',$url);
-        return $response;
+        $response = $client->request('GET', $url);
+        return (int)round($response->getContent());
     }
 }
